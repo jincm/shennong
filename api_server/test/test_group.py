@@ -3,7 +3,7 @@
 # coding = "utf-8"
 
 """
-    zuohaoshi test module
+    shennong test module
     Good man is well
 """
 import os
@@ -18,7 +18,7 @@ import json
 import requests
 
 # sudo kill -9 `pidof uwsgi`
-# sudo /usr/local/bin/uwsgi /home/jincm/zuohaoshi/server/uwsgi_config.ini
+# sudo /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
 
 ##################################################################################
 #######################Test#######################################################

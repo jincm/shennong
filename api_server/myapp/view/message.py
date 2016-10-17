@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi message module，sendmsg getmsg
+    shennong message module，sendmsg getmsg
     Be a good man
 """
 

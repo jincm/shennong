@@ -5,9 +5,9 @@ APP_PORT = '8000'
 # "DEBUG", "INFO","WARNING", "ERROR", "CRITICAL"
 DEBUG = False
 LOG_INFO = True
-LOG_FILE = "/var/log/zuohaoshi/zuohaoshi.log"
+LOG_FILE = "/var/log/shennong/shennong.log"
 
-UPLOAD_FOLDER = "/var/log/zuohaoshi"
+UPLOAD_FOLDER = "/var/run/shennong"
 
 SECRET_KEY = 'goodman'
 

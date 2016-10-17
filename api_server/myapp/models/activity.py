@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi db
+    shennong db
     Good man is well
 """
 import time
@@ -17,7 +17,7 @@ from myapp.models.group import Group
 from myapp import app
 from myapp.models import redis_db
 from myapp.ext.face_match import FacePPSearch
-activity_db = activity_db_client.zuohaoshi
+activity_db = activity_db_client.shennong
 
 # These keys are intentionally short, so as to save on memory in redis
 POST_KEY = 'P'

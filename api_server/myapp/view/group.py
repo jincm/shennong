@@ -1,6 +1,6 @@
 # encoding: utf-8
 """
-    zuohaoshi view
+    shennong view
     Good man is well
 """
 

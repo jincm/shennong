@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi db
+    shennong db
     Good man is well
 """
 import random
@@ -24,7 +24,7 @@ from myapp.ext.short_message import send_short_message
 from myapp.ext.easemob import EasemobIM
 from myapp import app
 
-user_db = user_db_client.zuohaoshi
+user_db = user_db_client.shennong
 user_collection = user_db.user_collection
 # user_db.user_collection.create_index("_id")
 

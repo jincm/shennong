@@ -3,7 +3,7 @@
 # coding = "utf-8"
 
 """
-    zuohaoshi test module
+    shennong test module
     Good man is well
 """
 import os
@@ -22,8 +22,8 @@ from test_user import myrequest
 ##################################################################################
 #######################Test#######################################################
 ##################################################################################
-# kill -9 `pidof uwsgi` && sleep 2 && /usr/local/bin/uwsgi /home/jincm/zuohaoshi/server/uwsgi_config.ini
-# python zuohaoshi/server/test/test_activity.py 192.168.3.12 80
+# kill -9 `pidof uwsgi` && sleep 2 && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
+# python shennong/server/test/test_activity.py 192.168.3.12 80
 if __name__ == '__main__':
     logger = logging.getLogger()
     logfile = '/tmp/test.log'
@@ -103,8 +103,8 @@ if __name__ == '__main__':
     params = dict()
     params['token'] = token
     # upload file
-    file1 = '/home/jincm/zuohaoshi/server/test/1.png'
-    file2 = '/home/jincm/zuohaoshi/server/test/2.jpg'
+    file1 = '/home/shennong/shennong/server/test/1.png'
+    file2 = '/home/shennong/shennong/server/test/2.jpg'
     myfiles = {'file1': open(file1, 'rb'), 'file2': open(file2, 'rb')}
     print "POST:%s?files:%s" % (my_url, myfiles)
 

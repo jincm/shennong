@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi admin
+    shennong admin
     Be a good man
 """
 from flask import Blueprint, request, abort, url_for, jsonify

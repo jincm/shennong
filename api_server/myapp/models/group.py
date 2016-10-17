@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi db
+    shennong db
     Good man is well
 """
 import json
@@ -11,7 +11,7 @@ from myapp.models import group_db_client
 from myapp.models import user
 from myapp import app
 
-group_db = group_db_client.zuohaoshi
+group_db = group_db_client.shennong
 group_collection = group_db.group_collecttion
 
 class Group(object):

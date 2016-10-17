@@ -1,6 +1,6 @@
 # encoding: utf-8
 """
-    zuohaoshi view
+    shennong view
     Good man is well
 """
 import os
@@ -76,7 +76,7 @@ def post_activity_upload_imgs(post_type, post_id):
         post_file.save(localfile)
 
         # upload file to oss
-        pic_url = 'zuohaoshi/%s/%s' % (post_type, post_id)
+        pic_url = 'shennong/%s/%s' % (post_type, post_id)
 
         file_url = upload_file_to_store(pic_url, pic_name, localfile)
         if file_url is None:
@@ -135,7 +135,7 @@ def upload_imgs():
         post_file.save(localfile)
 
         # upload file to oss
-        pic_url = 'zuohaoshi/%s/%s' % (current_user.user_id, month)
+        pic_url = 'shennong/%s/%s' % (current_user.user_id, month)
 
         file_url = upload_file_to_store(pic_url, pic_name, localfile)
         if file_url is None:

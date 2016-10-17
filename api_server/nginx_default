@@ -3,16 +3,16 @@ server {
     listen  8080;
     server_name app_server;
 
-    root /home/jincm/zuohaoshi/client/app/;
-    #root /home/jincm/zuohaoshi/client/dist/;
+    root /home/shennong/shennong/client/app/;
+    #root /home/shennong/shennong/client/dist/;
     index index.html index.htm;
 
     location /api/v1 {
         #rewrite /api/(.+) /$1 break;
         include      uwsgi_params;
         uwsgi_pass   172.17.0.2:8000;
-        uwsgi_param UWSGI_PYHOME /home/jincm/zuohaoshi/server;
-        uwsgi_param UWSGI_CHDIR  /home/jincm/zuohaoshi/server;
+        uwsgi_param UWSGI_PYHOME /home/shennong/shennong/server;
+        uwsgi_param UWSGI_CHDIR  /home/shennong/shennong/server;
         uwsgi_param UWSGI_SCRIPT manage:app;
         access_log   off;
     }
@@ -20,8 +20,8 @@ server {
     # location / {
     #     include      uwsgi_params;
     #     uwsgi_pass   127.0.0.1:8000;
-    #     uwsgi_param UWSGI_PYHOME /home/jincm/zuohaoshi/server;
-    #     uwsgi_param UWSGI_CHDIR  /home/jincm/zuohaoshi/server;
+    #     uwsgi_param UWSGI_PYHOME /home/shennong/shennong/server;
+    #     uwsgi_param UWSGI_CHDIR  /home/shennong/shennong/server;
     #     uwsgi_param UWSGI_SCRIPT manage:app;
     # }
 

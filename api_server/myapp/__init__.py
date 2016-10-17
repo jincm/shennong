@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-    zuohaoshi application start app
+    shennong application start app
     Good man is well
 """
 import os

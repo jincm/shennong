@@ -8,12 +8,12 @@ sudo chmod a+rw /var/run/docker.sock
 
 # export/import docker image
 docker export dockerid > app_server.tar
-cat app_server.tar | sudo docker import - zuohaoshi/app_server
+cat app_server.tar | sudo docker import - shennong/app_server
 或者
-docker import http://example.com/exampleimage.tgz zuohaoshi/app_server
+docker import http://example.com/exampleimage.tgz shennong/app_server
 
 ###if use docker,then
-docker run --name=app_server -p 8080:8080 -p 222:22 -it zuohaoshi/app_server /bin/bash
+docker run --name=app_server -p 8080:8080 -p 222:22 -it shennong/app_server /bin/bash
 docker start app_server
 docker attach app_server(注意：attach时不能exit，须ctrl+p+q)
 #docker run -d -it -P --name docker_name image_name
@@ -24,16 +24,16 @@ docker attach app_server(注意：attach时不能exit，须ctrl+p+q)
 # docker里面
 # 开启ssh服务后，就可以用服务器的ip+222去ssh登陆docker
 service ssh start
-service redis-server start && /usr/local/bin/uwsgi /home/jincm/zuohaoshi/server/uwsgi_config.ini && service nginx start
-kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/jincm/zuohaoshi/server/uwsgi_config.ini
+service redis-server start && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini && service nginx start
+kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
 #查看settings.py中连接的redis mongodb的ip是否正确，netstat有没有相应的连接
 
 # docker 挂载目录
    -v /etc/:/opt/etc/:ro #read only
 
 
-# cp /home/jincm/zuohaoshi/server/nginx_default /etc/nginx/sites-available/default
-# cp /home/jincm/zuohaoshi/server/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
+# cp /home/shennong/shennong/server/nginx_default /etc/nginx/sites-available/default
+# cp /home/shennong/shennong/server/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 # ln -fs ../bower_components bower_components
 
 # docker里自动启动服务
@@ -65,19 +65,19 @@ pydevd.settrace('192.168.3.1', port=12345, stdoutToServer=True, stderrToServer=T
 #install pip and virtualenv
 sudo apt-get update 
 sudo apt-get install -y python-pip git
-mkdir -p /home/jincm/zuohaoshi && sudo mkdir -p /var/log/zuohaoshi 
-# sudo chmod 777 /var/log/zuohaoshi/
+mkdir -p /home/shennong/shennong && sudo mkdir -p /var/log/shennong
+# sudo chmod 777 /var/log/shennong/
 
 
 # venv is not needed when use docker
-# cd /home/jincm/zuohaoshi
+# cd /home/shennong/shennong
 # sudo apt-get install -y build-essential python
 # sudo pip install virtualenv
 # virtualenv venv
 # source venv/bin/activate
 
 ###git clone
-git clone https://github.com/jincm/zuohaoshi_server.git server
+git clone https://github.com/jincm/shennong.git server
 
 #export first from local,not need on remote when build product environment
 #pip freeze >> requirements.txt
@@ -138,15 +138,15 @@ vi /usr/local/lib/python2.7/dist-packages/flask/json.py
 
 ###deploy chat server
 # deploy for nodejs
-mkdir -p /home/jincm/zuohaoshi/develop/
-scp node-v4.4.4-linux-x64.tar root@172.17.0.7:/home/jincm/zuohaoshi/develop/
-cat /root/.profile :export PATH=/home/jincm/zuohaoshi/develop/node-v4.4.4-linux-x64/bin:$PATH
+mkdir -p /home/shennong/shennong/develop/
+scp node-v4.4.4-linux-x64.tar root@172.17.0.7:/home/shennong/shennong/develop/
+cat /root/.profile :export PATH=/home/shennong/shennong/develop/node-v4.4.4-linux-x64/bin:$PATH
 #pushd /usr/local/src
 #tar xzf node-v4.2.3-linux-x64.tar.gz
 #ln -fs `pwd`/node-v4.2.3-linux-x64/bin/node /usr/sbin/node
 #ln -fs `pwd`/node-v4.2.3-linux-x64/bin/npm /usr/sbin/npm
 npm -v && node -v
-pushd /home/jincm/zuohaoshi/server/chat
+pushd /home/shennong/shennong/server/chat
 npm install --save express
 npm install --save socket.io
 #test code

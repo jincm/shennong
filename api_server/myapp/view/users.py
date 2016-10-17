@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-    zuohaoshi view
+    shennong view
     Good man is well
 """
 # system package
@@ -145,7 +145,7 @@ def user_upload_head_img(user_id):
         post_file.save(localfile)
 
         # upload file to oss
-        pic_url = 'zuohaoshi/%s' % current_user.user_id
+        pic_url = 'shennong/%s' % current_user.user_id
         # pic_name = '%s' % fname  # current_user.user_id + ext_name
         file_url = upload_file_to_store(pic_url, pic_name, localfile)
         if file_url is None:
