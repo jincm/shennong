@@ -1,24 +1,16 @@
 # cbt-ng-css
 This project is generated with [yo angular generator]
 
-#普通用户运行docker
-sudo gpasswd -a ${USER} docker
-sudo service docker restart
-sudo chmod a+rw /var/run/docker.sock
+####################################################################################
+##################导入运行docker####################################################
+####################################################################################
+先阅读文件"docker运行环境说明"
 
-# export/import docker image
-docker export dockerid > app_server.tar
-cat app_server.tar | sudo docker import - shennong/app_server
-或者
-docker import http://example.com/exampleimage.tgz shennong/app_server
-
-#for docker run from app_server.tar
-docker run --name=app_server -p 8080:8080 -p 222:22 -it shennong/app_server /bin/bash
-docker start app_server
-#docker run --name=ubuntu_client -p 9000:9000 -p 35729:35729 -it ubuntu_client /bin/bash
+# client运行目录
+/home/shennong/shennong/client
 
 #################################################################################################
-#构建docker运行环境过程（只须第一次需要，如果用构建好的docker镜像直接run即可，不需要这些操作）：
+#构建docker运行环境过程（只须第一次需要，如果用构建好的docker镜像直接使用即可，不需要这些操作）：
 #################################################################################################
 #update ubuntu
 apt-get update && apt-get install -y git
@@ -32,14 +24,12 @@ source /root/.profile
 #update npm
 vi ~/.npmrc
 registry = https://registry.npm.taobao.org
-npm install -g npm
-
-npm install -g gulp bower yo  #generator-angular
-npm install gulp yo
+npm install -g npm gulp bower yo  #generator-angular
+# npm install gulp yo
 
 # execute otherwise:yo will error:permission denied, open '/root/.config/configstore/insight-yo.json')
 chmod g+rwx /root /root/.config /root/.config/configstore 
-# execute otherwise:permission denied, open '/home/shennong/shennong/client/app/scripts/app.js)
+# execute it otherwise:permission denied, open '/home/shennong/shennong/client/app/scripts/app.js)
 chmod g+rwx -R /home/shennong/shennong/client/app 
 
 #install some additional package

@@ -1,31 +1,18 @@
 ####################################################################################
+##################导入运行docker####################################################
 ####################################################################################
-####################################################################################
-#普通用户运行docker
-sudo gpasswd -a ${USER} docker
-sudo service docker restart
-sudo chmod a+rw /var/run/docker.sock
+先阅读文件"docker运行环境说明"
 
-# export/import docker image
-docker export dockerid > app_server.tar
-cat app_server.tar | sudo docker import - shennong/app_server
-或者
-docker import http://example.com/exampleimage.tgz shennong/app_server
-
-###if use docker,then
-docker run --name=app_server -p 8080:8080 -p 222:22 -it shennong/app_server /bin/bash
-docker start app_server
-docker attach app_server(注意：attach时不能exit，须ctrl+p+q)
-#docker run -d -it -P --name docker_name image_name
+# server端运行目录
+/home/shennong/shennong/api_server
 
 # 在服务器上运行mongodb，不和redis一台机器，ubuntu14为base的docker运行mongodb，mongod会挂掉
 # mkdir -p /data/db
 # service mongodb start
-# docker里面
-# 开启ssh服务后，就可以用服务器的ip+222去ssh登陆docker
-service ssh start
+# docker里面开启redis-server服务
 service redis-server start
 mkdir -p /var/log/shennong /var/run/shennong
+# 开启nginx和uwsgi服务
 /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini && service nginx start
 #重启uwsgi
 kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini
