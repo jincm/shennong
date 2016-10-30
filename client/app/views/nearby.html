@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="nav nav-tabs nav-justified">
+            <li ng-class="{active: currentIndex == 1}" ng-click="nearby_handle_toggle(1)"><a href="#/nearby">动态</a>
+
+            </li>
+
+            <li ng-class="{active: currentIndex == 2}" ng-click="nearby_handle_toggle(2)"><a href="#/nearby">人</a>
+
+            </li>
+
+            <li ng-class="{active: currentIndex == 3}" ng-click="nearby_handle_toggle(3)"><a href="#/nearby">群组</a>
+
+            </li>
+            <li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#/nearby" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!--main page-->
+  <div  class="container" ng-cloak>
+    <div ng-if="currentIndex == 1">
+      <div ng-cloak class="container">
+        <p>Welcome to dynamic page.</p>
+        <p>Welcome to dynamic page.</p>
+        <p>Welcome to dynamic page.</p>
+        <ul>
+          <li ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+            {{ x }}
+          </li>
+          <li ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+            {{ x }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div ng-if="currentIndex == 2">
+      <div ng-cloak class="container">
+        <li ng-repeat="x in [1,2,3,4,5,6,7,8,9,10]">
+          <p>Welcome to man page.</p>
+        </li>
+        <table class="table">
+          <caption>表格</caption>
+          <thead>
+          <tr>
+            <th>名称</th>
+            <th>年龄</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td >Tanmay</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td>Sachin</td>
+            <td>22</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <!--form test-->
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">名字</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="age" class="col-sm-2 control-label">年龄</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="age" placeholder="请输入年龄">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">提交</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div ng-if="currentIndex == 3">
+      <div ng-cloak class="container">
+        <p>Welcome to group page.</p>
+        <p>Welcome to group page.</p>
+        <p>Welcome to group page.</p>
+
+        <!--upload file-->
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <label for="name">文件名称</label>
+            <input type="text" class="form-control" id="name" placeholder="请输入文件名称">
+          </div>
+          <div class="form-group">
+            <label for="inputfile">文件输入</label>
+            <input type="file" id="inputfile">
+            <p class="help-block">这里是块级帮助文本的实例。</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">请打勾
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">提交</button>
+        </form>
+
+        <img src="/images/test.jpg" class="img-rounded">
+        <img src="/images/test.jpg" class="img-circle">
+        <img src="/images/test.jpg" class="img-responsive">
+        <img src="/images/test.jpg" class="img-thumbnail">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

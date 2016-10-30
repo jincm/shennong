@@ -1,0 +1,17 @@
+{
+  "name": "zuohaoshi",
+  "version": "0.0.1",
+  "description": "这是个温暖的app,有你有我",
+  "author_email": "jincm12@163.com",
+  "app_ip": "192.168.3.3:8000",
+  "oss_key": "111111111111111",
+  "feature": {
+    "baiduMap": {
+      "android_api_key": "54lGjld4inySn6rEuUNqOuvG",
+      "ios_api_key": "dCLw8vuYWbzQqdpv0cr8utte"
+    }
+  }
+}
+
+
+
