@@ -24,13 +24,18 @@ docker attach app_server(注意：attach时不能exit，须ctrl+p+q)
 # docker里面
 # 开启ssh服务后，就可以用服务器的ip+222去ssh登陆docker
 service ssh start
-service redis-server start && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini && service nginx start
+service redis-server start
+mkdir -p /var/log/shennong /var/run/shennong
+/usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini && service nginx start
+#重启uwsgi
 kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini
 #查看settings.py中连接的redis mongodb的ip是否正确，netstat有没有相应的连接
 
+####################################################################################
+####################下面一些备注仅作参考，如果上面正常不需要关注####################
+####################################################################################
 # docker 挂载目录
    -v /etc/:/opt/etc/:ro #read only
-
 
 # cp /home/shennong/shennong/api_server/nginx_default /etc/nginx/sites-available/default
 # cp /home/shennong/shennong/api_server/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
