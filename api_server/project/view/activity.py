@@ -13,10 +13,10 @@ from flask import Blueprint, request, abort, jsonify
 from flask.ext.login import login_required, current_user
 from werkzeug.utils import secure_filename
 
-from myapp.models.activity import Activity
-from myapp.models.user import User
-from myapp.ext.file_oss import oss_upload_file as upload_file_to_store
-from myapp import app
+from project.models.activity import Activity
+from project.models.user import User
+from project.ext.file_oss import oss_upload_file as upload_file_to_store
+from project import app
 
 activity_blueprint = Blueprint('activity', __name__, url_prefix='/api/v1/activity')  # activity
 

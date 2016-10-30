@@ -5,11 +5,11 @@
     Be a good man
 """
 from flask import Blueprint, request, abort, url_for, jsonify
-from myapp import app
+from project import app
 
-from myapp.models.user import User
-from myapp.models.activity import Activity
-from myapp.models.group import Group
+from project.models.user import User
+from project.models.activity import Activity
+from project.models.group import Group
 
 admin_blueprint = Blueprint('admin', __name__, url_prefix='/api/v1/admin')
 

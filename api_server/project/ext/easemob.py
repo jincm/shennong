@@ -16,7 +16,7 @@ import requests
 
 if os.getcwd() not in sys.path:
     sys.path.append(os.getcwd())
-from myapp.models import redis_db
+from project.models import redis_db
 
 
 #Instant Messaging base class
@@ -1058,8 +1058,8 @@ class EasemobIM(ImBase):
 #######################Test#######################################################
 ##################################################################################
 if __name__ == '__main__':
-    #when test,you must cd /home/jincm/zuohaoshi/server first,also is myapp's parent dir
-    #and then "sudo python myapp/ext/easemob.py"
+    #when test,you must cd /home/jincm/zuohaoshi/server first,also is project's parent dir
+    #and then "sudo python project/ext/easemob.py"
     import logging
     import random
 

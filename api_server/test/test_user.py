@@ -68,8 +68,8 @@ def myrequest(url, method, headers=None, params=None, payload=None, files=None):
         print "%s ERROR except:%s?header:%s?%s,%s" % (method, url, headers, params, payload)
         return None
 
-# kill -9 `pidof uwsgi` && sleep 2 && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
-# python shennong/server/test/test_user.py 192.168.3.12 80
+# kill -9 `pidof uwsgi` && sleep 2 && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini
+# python shennong/api_server/test/test_user.py 192.168.3.12 80
 ##################################################################################
 #######################Test#######################################################
 ##################################################################################
@@ -300,8 +300,8 @@ if __name__ == '__main__':
     params = dict()
     params['token'] = new_token
     # upload file
-    file1 = '/home/shennong/shennong/server/test/1.png'
-    file2 = '/home/shennong/shennong/server/test/2.jpg'
+    file1 = '/home/shennong/shennong/api_server/test/1.png'
+    file2 = '/home/shennong/shennong/api_server/test/2.jpg'
     myfiles = {'file1': open(file1, 'rb')}
     ret = myrequest(my_url, "POST", params=params, files=myfiles)
     if ret:

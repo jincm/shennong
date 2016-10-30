@@ -7,9 +7,9 @@
 import json
 from bson import ObjectId, json_util
 
-from myapp.models import group_db_client
-from myapp.models import user
-from myapp import app
+from project.models import group_db_client
+from project.models import user
+from project import app
 
 group_db = group_db_client.shennong
 group_collection = group_db.group_collecttion

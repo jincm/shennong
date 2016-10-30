@@ -45,11 +45,11 @@ app.logger.info("test for app")
 ####################
 # ## blueprints ####
 ####################
-from myapp.view.admin import admin_blueprint
-from myapp.view.users import users_blueprint
-from myapp.view.activity import activity_blueprint
-from myapp.view.group import group_blueprint
-from myapp.view.message import message_blueprint
+from project.view.admin import admin_blueprint
+from project.view.users import users_blueprint
+from project.view.activity import activity_blueprint
+from project.view.group import group_blueprint
+from project.view.message import message_blueprint
 
 # register our blueprints
 app.register_blueprint(users_blueprint)
@@ -64,9 +64,9 @@ app.register_blueprint(message_blueprint)
 
 app.logger.info("end for register_blueprint")
 
-from myapp.models.user import *
-from myapp.models.activity import *
-from myapp.models.group import *
+from project.models.user import *
+from project.models.activity import *
+from project.models.group import *
 
 
 ####################

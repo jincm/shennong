@@ -2,7 +2,7 @@
 # encoding: utf-8
 import os
 
-from myapp import app
+from project import app
 from flask.ext.script import Manager, Server, Shell
 
 import unittest

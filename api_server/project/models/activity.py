@@ -11,12 +11,12 @@ import json
 from bson import ObjectId, json_util
 import pymongo
 
-from myapp.models import activity_db_client
-from myapp.models.user import User
-from myapp.models.group import Group
-from myapp import app
-from myapp.models import redis_db
-from myapp.ext.face_match import FacePPSearch
+from project.models import activity_db_client
+from project.models.user import User
+from project.models.group import Group
+from project import app
+from project.models import redis_db
+from project.ext.face_match import FacePPSearch
 activity_db = activity_db_client.shennong
 
 # These keys are intentionally short, so as to save on memory in redis

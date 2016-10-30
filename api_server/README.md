@@ -24,16 +24,16 @@ docker attach app_server(注意：attach时不能exit，须ctrl+p+q)
 # docker里面
 # 开启ssh服务后，就可以用服务器的ip+222去ssh登陆docker
 service ssh start
-service redis-server start && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini && service nginx start
-kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
+service redis-server start && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini && service nginx start
+kill -9 `pidof uwsgi` && sleep 1 && /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini
 #查看settings.py中连接的redis mongodb的ip是否正确，netstat有没有相应的连接
 
 # docker 挂载目录
    -v /etc/:/opt/etc/:ro #read only
 
 
-# cp /home/shennong/shennong/server/nginx_default /etc/nginx/sites-available/default
-# cp /home/shennong/shennong/server/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
+# cp /home/shennong/shennong/api_server/nginx_default /etc/nginx/sites-available/default
+# cp /home/shennong/shennong/api_server/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 # ln -fs ../bower_components bower_components
 
 # docker里自动启动服务
@@ -146,7 +146,7 @@ cat /root/.profile :export PATH=/home/shennong/shennong/develop/node-v4.4.4-linu
 #ln -fs `pwd`/node-v4.2.3-linux-x64/bin/node /usr/sbin/node
 #ln -fs `pwd`/node-v4.2.3-linux-x64/bin/npm /usr/sbin/npm
 npm -v && node -v
-pushd /home/shennong/shennong/server/chat
+pushd /home/shennong/shennong/api_server/chat
 npm install --save express
 npm install --save socket.io
 #test code

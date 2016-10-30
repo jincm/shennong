@@ -364,8 +364,8 @@ class FacePPSearch(FaceSearch):
 #######################Test#######################################################
 ##################################################################################
 if __name__ == '__main__':
-    #when test,you must cd /home/jincm/zuohaoshi/server first,also is myapp's parent dir
-    #and then "sudo python myapp/ext/face_match.py"
+    #when test,you must cd /home/jincm/zuohaoshi/server first,also is project's parent dir
+    #and then "sudo python project/ext/face_match.py"
     import logging
     import random
 

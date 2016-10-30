@@ -18,11 +18,11 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
 
 import pymongo
 
-from myapp.models import user_db_client
-from myapp.models import redis_db, CURRENT_USER_ID
-from myapp.ext.short_message import send_short_message
-from myapp.ext.easemob import EasemobIM
-from myapp import app
+from project.models import user_db_client
+from project.models import redis_db, CURRENT_USER_ID
+from project.ext.short_message import send_short_message
+from project.ext.easemob import EasemobIM
+from project import app
 
 user_db = user_db_client.shennong
 user_collection = user_db.user_collection

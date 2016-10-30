@@ -18,7 +18,7 @@ import json
 import requests
 
 # sudo kill -9 `pidof uwsgi`
-# sudo /usr/local/bin/uwsgi /home/shennong/shennong/server/uwsgi_config.ini
+# sudo /usr/local/bin/uwsgi /home/shennong/shennong/api_server/uwsgi_config.ini
 
 ##################################################################################
 #######################Test#######################################################

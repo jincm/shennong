@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import redis
 
-from myapp import app
+from project import app
 
 user_db_client = MongoClient(app.config['MONGODB_DATABASE'])  # ("mongodb://localhost:27017")
 activity_db_client = user_db_client

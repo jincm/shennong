@@ -7,9 +7,9 @@
 from flask import Blueprint, request, abort, jsonify
 from flask.ext.login import login_required, current_user
 
-from myapp.models.user import User
-from myapp.models.group import Group
-from myapp import app
+from project.models.user import User
+from project.models.group import Group
+from project import app
 
 group_blueprint = Blueprint('group', __name__, url_prefix='/api/v1/group')
 

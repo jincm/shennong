@@ -16,9 +16,9 @@ from flask.ext.login import login_required, current_user
 from werkzeug.utils import secure_filename
 
 # project package
-from myapp.models.user import User
-from myapp.ext.file_oss import oss_upload_file as upload_file_to_store
-from myapp import app
+from project.models.user import User
+from project.ext.file_oss import oss_upload_file as upload_file_to_store
+from project import app
 
 users_blueprint = Blueprint('users', __name__, url_prefix='/api/v1/user')
 # loster_blueprint = Blueprint('loster', __name__)

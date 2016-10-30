@@ -11,18 +11,9 @@ server {
         #rewrite /api/(.+) /$1 break;
         include      uwsgi_params;
         uwsgi_pass   172.17.0.2:8000;
-        uwsgi_param UWSGI_PYHOME /home/shennong/shennong/server;
-        uwsgi_param UWSGI_CHDIR  /home/shennong/shennong/server;
+        uwsgi_param UWSGI_PYHOME /home/shennong/shennong/api_server;
+        uwsgi_param UWSGI_CHDIR  /home/shennong/shennong/api_server;
         uwsgi_param UWSGI_SCRIPT manage:app;
         access_log   off;
     }
-
-    # location / {
-    #     include      uwsgi_params;
-    #     uwsgi_pass   127.0.0.1:8000;
-    #     uwsgi_param UWSGI_PYHOME /home/shennong/shennong/server;
-    #     uwsgi_param UWSGI_CHDIR  /home/shennong/shennong/server;
-    #     uwsgi_param UWSGI_SCRIPT manage:app;
-    # }
-
   }
