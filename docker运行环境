@@ -1,36 +1,40 @@
-#ÆÕÍ¨ÓÃ»§ÔËĞĞdocker
+#æ™®é€šç”¨æˆ·è¿è¡Œdocker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
 sudo chmod a+rw /var/run/docker.sock
 
-# ´ÓtarÎÄ¼şµ¼Èë
+é˜¿é‡Œdockeré•œåƒæœåŠ¡ï¼šæ‚¨å¯ä»¥ä½¿ç”¨å¦‚ä¸‹çš„è„šæœ¬å°†mirrorçš„é…ç½®æ·»åŠ åˆ°docker daemonçš„å¯åŠ¨å‚æ•°ä¸­ã€‚
+echo "DOCKER_OPTS=\"--registry-mirror=https://pee6w651.mirror.aliyuncs.com\"" | sudo tee -a /etc/default/docker
+sudo service docker restart
+
+# ä»taræ–‡ä»¶å¯¼å…¥
 cat shennong.tar | sudo docker import - shennong/shennong_cloud
-»òÕß
+æˆ–è€…
 docker import http://example.com/exampleimage.tgz shennong/shennong_cloud
-±¸×¢£ºµ¼³ö£º
+å¤‡æ³¨ï¼šå¯¼å‡ºï¼š
 docker export dockerid > shennong.tar
 
-È»ºó¾Í¿ÉÒÔÔËĞĞdocker£¬µã»÷È·ÈÏºó¾ÍÊÇdockerÀïÃæ
+ç„¶åå°±å¯ä»¥è¿è¡Œdockerï¼Œç‚¹å‡»ç¡®è®¤åå°±æ˜¯dockeré‡Œé¢
 docker run --name=shennong_cloud -p 8080:8080 -p 222:22 -it shennong/shennong_cloud /bin/bash
 
-±¸×¢£ºÈç¹ûÊÇstop×´Ì¬¿ÉÒÔÖ±½Óstart
+å¤‡æ³¨ï¼šå¦‚æœæ˜¯stopçŠ¶æ€å¯ä»¥ç›´æ¥start
 docker start shennong_cloud
-docker attach shennong_cloud(×¢Òâ£ºattachÊ±²»ÄÜexit£¬Ğëctrl+p+q)
+docker attach shennong_cloud(æ³¨æ„ï¼šattachæ—¶ä¸èƒ½exitï¼Œé¡»ctrl+p+q)
 
-# dockerÀïÃæ
-# ¿ªÆôssh·şÎñºó£¬¾Í¿ÉÒÔÓÃ·şÎñÆ÷µÄip+222È¥sshµÇÂ½docker
+# dockeré‡Œé¢
+# å¼€å¯sshæœåŠ¡åï¼Œå°±å¯ä»¥ç”¨æœåŠ¡å™¨çš„ip+222å»sshç™»é™†docker
 service ssh start
 
-# ¸ù¾İÊµ¼ÊÇé¿öĞŞ¸Änginx ÅäÖÃ
+# æ ¹æ®å®é™…æƒ…å†µä¿®æ”¹nginx é…ç½®
 cat /etc/nginx/sites-enabled/default
 uwsgi_pass   172.17.0.3:8000;
 
 cat shennong/api_server/settings.py
 MONGODB_DATABASE = "mongodb://172.17.42.1:27017"
 
-# ½âÑ¹nodejs½âÊÍÆ÷
+# è§£å‹nodejsè§£é‡Šå™¨
 pushd /home/shennong/shennong/develop
 tar xzf node-v4.4.4-linux-x64.tgz
 
-# ¸üĞÂ´úÂë
+# æ›´æ–°ä»£ç 
 pushd /home/shennong/shennong/ && git pull
