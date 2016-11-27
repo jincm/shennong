@@ -5,7 +5,7 @@ function HttpInjector($q) {
       if(localStorage.token) {
         config.headers.token = localStorage.token;
       }
-      console.log("http come here and name is " + localStorage.name);
+      console.log("come http service here and name is " + localStorage.name);
       console.log(config);
 
       return config;
@@ -24,7 +24,7 @@ function HttpInjector($q) {
     },
     // 成功返回了响应
     response: function(res){
-      console.log("response in httpinjector " + JSON.stringify(res));
+      //console.log("response in httpinjector " + JSON.stringify(res));
       return res;
     },
     // 返回的响应出错，包括后端返回响应时，设置了非 200 的 http 状态码
