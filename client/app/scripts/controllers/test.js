@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:TestCtrl
+ * @name NgApp.controller:TestCtrl
  * @description
  * # TestCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('TestCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

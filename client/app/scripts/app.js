@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name cbtNgCssApp
+ * @name NgApp
  * @description
- * # cbtNgCssApp
+ * # NgApp
  *
  * Main module of the application.
  */
 angular
-  .module('cbtNgCssApp', [
+  .module('NgApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

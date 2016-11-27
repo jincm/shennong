@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:RegisterCtrl
+ * @name NgApp.controller:RegisterCtrl
  * @description
  * # RegisterCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('RegisterCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

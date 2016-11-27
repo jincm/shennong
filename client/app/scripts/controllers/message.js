@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:MessageCtrl
+ * @name NgApp.controller:MessageCtrl
  * @description
  * # MessageCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('MessageCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

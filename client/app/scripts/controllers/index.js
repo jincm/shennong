@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:MainCtrl
+ * @name NgApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
 
 
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('AppCtrl', [
     '$rootScope',
     '$scope',

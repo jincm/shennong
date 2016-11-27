@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:NearbyCtrl
+ * @name NgApp.controller:NearbyCtrl
  * @description
  * # NearbyCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('NearbyCtrl', function ($scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',

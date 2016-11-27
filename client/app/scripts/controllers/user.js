@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:UserCtrl
+ * @name NgApp.controller:UserCtrl
  * @description
  * # UserCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('UserCtrl', function ($scope, $window, $location) {
     this.awesomeThings = [
       'HTML5 Boilerplate',

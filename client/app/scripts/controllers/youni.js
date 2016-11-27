@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:YouniCtrl
+ * @name NgApp.controller:YouniCtrl
  * @description
  * # YouniCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('YouniCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

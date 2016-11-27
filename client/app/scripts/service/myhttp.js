@@ -36,11 +36,11 @@ function HttpInjector($q) {
 }
 
 angular
-  .module('cbtNgCssApp')
+  .module('NgApp')
   .factory('HttpInjector', ['$q', HttpInjector]);
 
 angular
-  .module('cbtNgCssApp')
+  .module('NgApp')
   .config(['$httpProvider', function($httpProvider){
     $httpProvider.interceptors.push(HttpInjector);
   }]);

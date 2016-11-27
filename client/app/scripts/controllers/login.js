@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cbtNgCssApp.controller:LoginCtrl
+ * @name NgApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the cbtNgCssApp
+ * Controller of the NgApp
  */
-angular.module('cbtNgCssApp')
+angular.module('NgApp')
   .controller('LoginCtrl', [
     '$scope',
     '$http',
@@ -56,15 +56,15 @@ angular.module('cbtNgCssApp')
           'account':$scope.login.phone
         }});
       promise.success(function(data, status, config, headers){
-        console.log("get_identify_code here;result is " + data);
-        console.log("get_identify_code here;result is " + status);
-        console.log("get_identify_code here;result is " + config);
-        console.log("get_identify_code here;result is " + headers);
+        console.log("get_identify_code here;data is " + data);
+        console.log("get_identify_code here;status is " + status);
+        console.log("get_identify_code here;config is " + config);
+        console.log("get_identify_code here;headers is " + headers);
       });
       promise.error(function(data, status, config, headers){
         console.log("get_identify_code error;result is " + data);
         console.log("get_identify_code error;result is " + status);
-        console.log("get_identify_code error;result is " + config);
+        console.log("get_identify_code error;result is aaaaa " + config + headers);
         console.log("get_identify_code error;result is " + headers);
       });
       console.log("get_identify_code here;result is done");
