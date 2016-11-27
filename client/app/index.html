@@ -26,14 +26,14 @@
 </div>
 
 
-<div  class="container" ng-cloak>
-  <div ng-if="!isLogin()">
+<div  class="container" ng-cloak ng-model="is_authed">
+  <div ng-if="!is_login()">
     <!--login-->
     <!-- this is the content region -->
 
     <div ng-cloak class="container">
       <h1>Welcome</h1>
-      <p>Welcome to login page.  {{isUserAuth}}</p>
+      <p>Welcome to login page.  {{is_authed}}</p>
 
       <div class="container">
         <div ng-include="'views/login.html'"></div>
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <div ng-cloak ng-if="isLogin()">
+  <div ng-cloak ng-if="is_login()">
     <!-- this is the content region -->
     <div ng-cloak class="container">
       <div class="container">

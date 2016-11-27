@@ -6,7 +6,7 @@ function HttpInjector($q) {
         config.headers.token = localStorage.token;
       }
       console.log("come http service here and name is " + localStorage.name);
-      console.log(config);
+      //console.log(config);
 
       return config;
     },

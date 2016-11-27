@@ -14,9 +14,12 @@ angular.module('NgApp')
       'AngularJS',
       'Karma'
     ];
-    console.log("auth is " + $scope.isUserAuth + " url is " + $location.path());
+    console.log("auth is " + $scope.is_authed + " url is " + $location.path());
     $scope.logout = function () {
       console.log('logout success and clear');
       $window.localStorage.removeItem('name');
+      $scope.is_authed = false;
+      $location.path('/#').replace();
+      //$window.location.href = '/#/'
     };
   });

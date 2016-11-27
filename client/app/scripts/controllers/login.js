@@ -24,31 +24,64 @@ angular.module('NgApp')
 
     $scope.login = {};
 
-    console.log("input is " + JSON.stringify($scope.login));
+    console.log("login page input is " + JSON.stringify($scope.login));
 
     $scope.mylogin = function () {
-      //$scope.isUserAuth = !$scope.isUserAuth;
-      console.log('login success and set name');
-      $window.localStorage.setItem('name','jincm');
-      $location.path('/user').replace();
+      $http({
+        method: 'POST',
+        headers:{'content-type': 'application/json'},
+        url: '/api/v1/user/login',
+        data: {
+          'account':$scope.login.phone,
+          'passwd':$scope.login.passwd
+        }}).success(function(data, header, config, status){
+        console.log("login result data is " + JSON.stringify(data));
+
+        if(data.user_id != null){
+          alert("登陆成功，用户编号:" + JSON.stringify(data.user_id));
+          $scope.is_authed = true;
+          console.log('login success and set name ' + data.user_id);
+          $window.localStorage.setItem('name', data.user_id);
+          $location.path('/nearby').replace();
+          //$window.location.href = '/#/nearby';
+        }
+        else {
+          alert("登陆失败，密码不对");
+        }
+      }).error(function(data, header, config, status){
+        console.log("login error result data is " + JSON.stringify(data));
+      });
+
+      //promise.success(function(data, status, config, headers){
+      //  console.log("register result data is " + JSON.stringify(data));
+      //  alert("用户编号:" + JSON.stringify(data.user_id))
+      //});
     };
+
     $scope.myregister = function() {
-      console.log("register here");
+      console.log("register start");
+      var promise = $http({
+        method: 'POST',
+        headers:{'content-type': 'application/json'},
+        url: '/api/v1/user/register',
+        data: {
+          'account':$scope.login.phone,
+          'identify_code':$scope.login.identify_code,
+          'passwd':$scope.login.passwd
+        }});
+
+      promise.success(function(data, status, config, headers){
+        console.log("register result data is " + JSON.stringify(data));
+        alert("用户编号:" + JSON.stringify(data.user_id))
+      });
+      promise.error(function(data, status, config, headers){
+        console.log("register result is " + JSON.stringify(data));
+      });
+      console.log("register end");
     };
+
     $scope.get_identify_code = function() {
       console.log("input is " + JSON.stringify($scope.login));
-      //$scope.login.identify_code = 111;
-      //var http_path = 'http://192.168.3.3:8080/api/v1/user/register?account=' + $scope.login.phone;
-      //$http.jsonp(http_path).success(function(res) {
-      //  console.log("response is " + res.body);
-      //});
-
-      //var promise = $http({
-      //  method: 'POST',
-      //  url: '/api/v1/user/register',
-      //  data: {
-      //    'account':$scope.login.phone
-      //  }});
       var promise = $http({
         method: 'GET',
         url: '/api/v1/user/register',
@@ -56,16 +89,13 @@ angular.module('NgApp')
           'account':$scope.login.phone
         }});
       promise.success(function(data, status, config, headers){
-        console.log("get_identify_code here;data is " + data);
-        console.log("get_identify_code here;status is " + status);
-        console.log("get_identify_code here;config is " + config);
-        console.log("get_identify_code here;headers is " + headers);
+        console.log("get_identify_code here;data is " + JSON.stringify(data));
+        //console.log("get_identify_code here;identify_code is " + JSON.stringify(data.identify_code));
+        alert("验证码是" + JSON.stringify(data.identify_code))
+
       });
       promise.error(function(data, status, config, headers){
-        console.log("get_identify_code error;result is " + data);
-        console.log("get_identify_code error;result is " + status);
-        console.log("get_identify_code error;result is aaaaa " + config + headers);
-        console.log("get_identify_code error;result is " + headers);
+        console.log("get_identify_code error;result is " + JSON.stringify(data));
       });
       console.log("get_identify_code here;result is done");
     };
