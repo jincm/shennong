@@ -22,4 +22,5 @@ angular.module('NgApp')
       $location.path('/#').replace();
       //$window.location.href = '/#/'
     };
+
   });
