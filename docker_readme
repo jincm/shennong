@@ -1,0 +1,42 @@
+#基础运行OS建议ubuntu14.04，别的版本没试过
+
+#普通用户运行docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+sudo chmod a+rw /var/run/docker.sock
+
+阿里docker镜像服务：您可以使用如下的脚本将mirror的配置添加到docker daemon的启动参数中。
+echo "DOCKER_OPTS=\"--registry-mirror=https://pee6w651.mirror.aliyuncs.com\"" | sudo tee -a /etc/default/docker
+sudo service docker restart
+
+# 从tar文件导入
+cat shennong.tar | sudo docker import - shennong/shennong_cloud
+或者
+docker import http://example.com/exampleimage.tgz shennong/shennong_cloud
+备注：导出：
+docker export dockerid > shennong.tar
+
+然后就可以运行docker，点击确认后就是docker里面
+docker run --name=shennong_cloud -p 8080:8080 -p 222:22 -it shennong/shennong_cloud /bin/bash
+
+备注：如果是stop状态可以直接start
+docker start shennong_cloud
+docker attach shennong_cloud(注意：attach时不能exit，须ctrl+p+q)
+
+# docker里面
+# 开启ssh服务后，就可以用服务器的ip+222去ssh登陆docker
+service ssh start
+
+# 根据实际情况修改nginx 配置
+cat /etc/nginx/sites-enabled/default
+uwsgi_pass   172.17.0.3:8000;
+
+cat shennong/api_server/settings.py
+MONGODB_DATABASE = "mongodb://172.17.42.1:27017"
+
+# 解压nodejs解释器
+pushd /home/shennong/shennong/develop
+tar xzf node-v4.4.4-linux-x64.tgz
+
+# 更新代码
+pushd /home/shennong/shennong/ && git pull
