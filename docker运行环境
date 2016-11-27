@@ -1,3 +1,5 @@
+#基础运行OS建议ubuntu14.04，别的版本没试过
+
 #普通用户运行docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
