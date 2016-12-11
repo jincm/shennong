@@ -37,12 +37,12 @@ angular.module('NgApp')
       $scope.is_login = function(){
         if($window.localStorage.getItem('name') != null) {
           $scope.is_authed = true;
-          console.log('has login: ' + $window.localStorage.getItem('name'));
+          //console.log('has login: ' + $window.localStorage.getItem('name'));
           return true;
         }
         else {
           $scope.is_authed = false;
-          console.log('has not login: ' + $window.localStorage.getItem('name'));
+          //console.log('has not login: ' + $window.localStorage.getItem('name'));
           return false;
         }
       };

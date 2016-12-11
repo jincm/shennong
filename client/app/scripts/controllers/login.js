@@ -40,8 +40,10 @@ angular.module('NgApp')
           if(data.user_id != null){
             alert("登陆成功，用户编号:" + JSON.stringify(data.user_id));
             $scope.is_authed = true;
-            console.log('login success and set name ' + data.user_id);
+            console.log('login success and set name ' + data.user_id + ' ' + data.token);
             $window.localStorage.setItem('name', data.user_id);
+            $scope.token = data.token;
+            $window.localStorage.setItem('token', data.token);
             $location.path('/nearby').replace();
             //$window.location.href = '/#/nearby';
           }
