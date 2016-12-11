@@ -36,7 +36,9 @@ file_handler = RotatingFileHandler(app.config['LOG_FILE'], 'a', 10*1024*1024, 10
 file_handler.setFormatter(Formatter('[%(process)d %(filename)s:%(lineno)d]%(asctime)s %(levelname)s: %(message)s'))
 app.logger.addHandler(file_handler)
 # debug
-if app.config['LOG_INFO']:
+if app.config['LOG_DEBUG']:
+    app.logger.setLevel(logging.DEBUG)
+elif app.config['LOG_INFO']:
     app.logger.setLevel(logging.INFO)
 else:
     app.logger.setLevel(logging.WARN)
@@ -81,11 +83,13 @@ def load_user_from_request(request):
     elif request.json and "token" in request.json:
         token = request.json.get("token")
         #del request.json["token"]
-    elif request.headers and "token" in request.headers:
-        token = request.headers.get("token")
+    elif request.headers and "Token" in request.headers:
+        token = request.headers.get("Token")
         #del request.headers["token"]
     else:
         return None
+
+    app.logger.info("get token success %s" % token)
     return User.get_user_from_token(token)
 
 app.logger.debug("end for flask config and init\n")

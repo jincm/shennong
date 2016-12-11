@@ -3,7 +3,7 @@ APP_HOST = '0.0.0.0'
 APP_PORT = '8000'
 
 # "DEBUG", "INFO","WARNING", "ERROR", "CRITICAL"
-DEBUG = False
+LOG_DEBUG = True
 LOG_INFO = True
 LOG_FILE = "/var/log/shennong/shennong.log"
 

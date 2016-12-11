@@ -75,6 +75,8 @@ def post_activity_upload_imgs(post_type, post_id):
         app.logger.debug("start upload file to local store:[%s],[%s]" % (pic_name, localfile))
         post_file.save(localfile)
 
+        return jsonify({'upload_file': 'ok'})
+
         # upload file to oss
         pic_url = 'shennong/%s/%s' % (post_type, post_id)
 
@@ -133,6 +135,8 @@ def upload_imgs():
         localfile = os.path.join(app.config['UPLOAD_FOLDER'], pic_name)
         app.logger.debug("start upload file to local store:[%s],[%s]" % (pic_name, localfile))
         post_file.save(localfile)
+
+        return jsonify({'upload_file': 'ok'})
 
         # upload file to oss
         pic_url = 'shennong/%s/%s' % (current_user.user_id, month)
